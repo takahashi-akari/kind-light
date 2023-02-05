@@ -24,4 +24,5 @@ yarn-error.log*
 
 # Mac && Firebase
 .DS_Store
-.firebase
+.firebase/
+
