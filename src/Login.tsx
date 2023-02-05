@@ -76,7 +76,7 @@ const Login = () => {
       </Button>
     </div>
   ) : (
-    <Navigate to="/" />
+    <Navigate to="/" replace />
   );
 };
 export default Login;

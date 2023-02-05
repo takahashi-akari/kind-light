@@ -44,7 +44,7 @@ const App = () => {
   )
   :
   (
-    <Navigate to="/login" />
+    <Navigate to="/login" replace />
   );
 };
 export default App;
