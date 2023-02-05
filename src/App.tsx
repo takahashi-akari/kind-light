@@ -3,10 +3,15 @@ import { auth } from "./Firebase";
 import { ExitToAppOutlined } from "@material-ui/icons";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Delete } from "@material-ui/icons";
+import { useState } from "react";
 
 const App = () => {
+  const [isLogin, setIsLogin] = useState(false);
   let navigate = useNavigate();
-  return auth.currentUser ?
+  useState(() => {
+    auth.currentUser ? setIsLogin(true) : setIsLogin(false);
+  });
+  return isLogin ?
   (
     <div className="App">
       <h1>KindLightへようこそ</h1>

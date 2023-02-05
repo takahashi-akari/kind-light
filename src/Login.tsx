@@ -7,9 +7,13 @@ import { useNavigate, Navigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pw, setPW] = useState("");
+  const [isLogin, setIsLogin] = useState(false);
   let navigate = useNavigate();
+  useState(() => {
+    auth.currentUser ? setIsLogin(true) : setIsLogin(false);
+  });
 
-  return !auth.currentUser ?
+  return !isLogin ?
   (
     <div>
       <div>
