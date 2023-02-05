@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { auth } from "./Firebase";
 import { ExitToAppOutlined } from "@material-ui/icons";
