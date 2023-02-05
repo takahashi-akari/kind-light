@@ -1,14 +1,26 @@
 {
   "hosting": {
     "public": "build",
-    "source": "/**",
     "headers": [ {
-        "source": "**",
-        "headers": [ {
+      "source": "**",
+      "headers": [ {
         "key": "Cache-Control",
         "value": "no-cache, no-store, must-revalidate"
       }]
-    }],
+    }, {
+      "source": "**",
+      "headers": [ {
+        "key": "Pragma",
+        "value": "no-cache"
+      }]
+    }, {
+      "source": "**",
+      "headers": [ {
+        "key": "Expires",
+        "value": "0"
+      }]
+    }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
