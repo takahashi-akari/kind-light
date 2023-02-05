@@ -2,20 +2,15 @@ import React, { useState } from "react";
 import { auth } from "./Firebase";
 import { Button, FormControl, TextField } from "@material-ui/core";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pw, setPW] = useState("");
   let navigate = useNavigate();
 
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      return navigate("/");
-    }
-  });
-
-  return (
+  return !auth.currentUser ?
+  (
     <div>
       <div>
         <div>ログイン画面</div>
@@ -80,6 +75,8 @@ const Login = () => {
         アカウントの作成画面へ
       </Button>
     </div>
+  ) : (
+    <Navigate to="/" />
   );
 };
 export default Login;
