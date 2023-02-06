@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { auth } from "./Firebase";
+import { Navigate } from "react-router-dom";
 import { Button, FormControl, TextField } from "@material-ui/core";
+import { auth } from "./Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate, Navigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [pw, setPW] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
-  let navigate = useNavigate();
-  auth.currentUser ? setIsLogin(true) : setIsLogin(false);
-  return !isLogin ?
-  (
+  return auth && auth.currentUser ? (
+    <Navigate to="/" replace />
+  ) : (
     <div>
       <div>
         <div>ユーザー登録画面</div>
@@ -53,7 +51,7 @@ const Signup = () => {
             try {
               await createUserWithEmailAndPassword(auth, email, pw);
               alert("ユーザー登録処理が完了しました。ログイン処理を行います。");
-              return navigate("/");
+              return <Navigate to="/login" replace />;
             } catch (e: any) {
               console.log(e);
               alert(e.message);
@@ -70,14 +68,12 @@ const Signup = () => {
         color="primary"
         size="small"
         onClick={() => {
-          return navigate("/login");
+            return <Navigate to="/login" replace />;
         }}
       >
         ログイン画面へ
       </Button>
     </div>
-  ) : (
-    <Navigate to="/" replace />
   );
 };
 export default Signup;
