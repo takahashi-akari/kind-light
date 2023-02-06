@@ -9,10 +9,7 @@ const Login = () => {
   const [pw, setPW] = useState("");
   const [isLogin, setIsLogin] = useState(false);
   let navigate = useNavigate();
-  useState(() => {
-    auth.currentUser ? setIsLogin(true) : setIsLogin(false);
-  });
-
+  auth.currentUser ? setIsLogin(true) : setIsLogin(false);
   return !isLogin ?
   (
     <div>

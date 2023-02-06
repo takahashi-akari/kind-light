@@ -8,10 +8,12 @@ import { useState } from "react";
 const App = () => {
   const [isLogin, setIsLogin] = useState(false);
   let navigate = useNavigate();
-  useState(() => {
-    auth.currentUser ? setIsLogin(true) : setIsLogin(false);
-  });
-  return isLogin ?
+  auth.currentUser ? setIsLogin(true) : setIsLogin(false);
+  return !isLogin ?
+  (
+    <Navigate to="/login" replace />
+  )
+  :
   (
     <div className="App">
       <h1>KindLightへようこそ</h1>
@@ -46,10 +48,6 @@ const App = () => {
         ユーザーの削除<Delete />
       </button>
     </div>
-  )
-  :
-  (
-    <Navigate to="/login" replace />
   );
 };
 export default App;
