@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { auth } from "./Firebase";
 import { Button, FormControl, TextField } from "@material-ui/core";
-import { Navigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pw, setPW] = useState("");
+  const navigate = useNavigate();
   return auth && auth.currentUser ? (
     <Navigate to="/" replace />
   ) : (
@@ -49,9 +50,9 @@ const Login = () => {
           size="small"
           onClick={async () => {
             try {
-              signInWithEmailAndPassword(auth, email, pw);
+              await signInWithEmailAndPassword(auth, email, pw);
               alert("ログイン処理が成功しました。");
-              return <Navigate to="/" replace />;
+              return navigate("/");
             } catch (e: any) {
               console.log(e);
               alert(e.message);
@@ -68,7 +69,7 @@ const Login = () => {
         color="primary"
         size="small"
         onClick={() => {
-          return <Navigate to="/signup" replace />;
+          return navigate("/signup");
         }}
       >
         アカウントの作成画面へ
