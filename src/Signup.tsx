@@ -8,9 +8,10 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [pw, setPW] = useState("");
   const navigate = useNavigate();
-  return auth && auth.currentUser ? (
-    <Navigate to="/" replace />
-  ) : (
+  if (auth && auth.currentUser) {
+    return <Navigate to="/" replace />;
+  }
+  return (
     <div>
       <div>
         <div>ユーザー登録画面</div>

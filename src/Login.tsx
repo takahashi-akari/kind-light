@@ -8,9 +8,10 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pw, setPW] = useState("");
   const navigate = useNavigate();
-  return auth && auth.currentUser ? (
-    <Navigate to="/" replace />
-  ) : (
+  if (auth && auth.currentUser) {
+    return <Navigate to="/" replace />;
+  }
+  return (
     <div>
       <div>
         <div>ログイン画面</div>
