@@ -6,6 +6,12 @@ import {
 import App from "./App";
 import Login from "./Login";
 import Signup from "./Signup";
+import Header from "./Header";
+import Footer from "./Footer";
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const router = createBrowserRouter([
   {
@@ -23,5 +29,12 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root") as HTMLElement).render(
-  <RouterProvider router={router} />
+  <>
+    <Header />
+    <h1>Kind Light</h1>
+    <p>Kind Light is a web app that helps you to relax and sleep better.</p>
+    <hr />
+    <RouterProvider router={router} />
+    <Footer />
+  </>
 );

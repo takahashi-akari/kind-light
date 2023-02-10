@@ -12,9 +12,9 @@ const Login = () => {
     return <Navigate to="/" replace />;
   }
   return (
-    <div>
-      <div>
-        <div>ログイン画面</div>
+    <div className="row">
+      <div className="col-12">
+        <h2>ログイン画面</h2>
         <FormControl>
           <TextField
             style={{ width: "300px" }}

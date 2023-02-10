@@ -10,38 +10,40 @@ const App = () => {
     return <Navigate to="/login" replace />;
   }
   return (
-    <div className="App">
-      <h1>KindLightへようこそ</h1>
-      <div>
-        <p>ようこそ、KindLightへ！</p>
-        <p>KindLightは、あなたのオープンソースの作品を共有するためのサービスです。</p>
+    <div className="row App">
+      <div className="col-12">
+        <h2>Welcome, KindLight!</h2>
+        <div>
+          <p>Welcome, KindLight!</p>
+          <p>Kind Light is a web app that helps you to relax and sleep better.</p>
+        </div>
+        <button
+          onClick={async () => {
+            try {
+              await auth.signOut();
+              return navigate("/login");
+            } catch (e) {
+              console.log(e);
+            }
+          }}
+        >
+          ログアウト<ExitToAppOutlined />
+        </button>
+        <button
+          onClick={async () => {
+            try {
+              await auth.currentUser?.delete();
+              alert("ユーザーを削除しました。");
+              await auth.signOut();
+              return navigate("/login");
+            } catch (e) {
+              console.log(e);
+            }
+          }}
+        >
+          ユーザーの削除<Delete />
+        </button>
       </div>
-      <button
-        onClick={async () => {
-          try {
-            await auth.signOut();
-            return navigate("/login");
-          } catch (e) {
-            console.log(e);
-          }
-        }}
-      >
-        ログアウト<ExitToAppOutlined />
-      </button>
-      <button
-        onClick={async () => {
-          try {
-            await auth.currentUser?.delete();
-            alert("ユーザーを削除しました。");
-            await auth.signOut();
-            return navigate("/login");
-          } catch (e) {
-            console.log(e);
-          }
-        }}
-      >
-        ユーザーの削除<Delete />
-      </button>
     </div>
   );
 };
