@@ -15,66 +15,80 @@ const Login = () => {
     <div className="row">
       <div className="col-12">
         <h2>ログイン画面</h2>
-        <FormControl>
-          <TextField
+        <p>
+          ログインすると、Kind Lightの機能を使うことができます。
+          メールアドレスとパスワードを入力して、ログインしてください。
+        </p>
+        <hr />
+        <div className="mb-3">
+          <label
+            htmlFor="email"
+            className="form-label"
             style={{ width: "300px" }}
-            InputLabelProps={{
-              shrink: true,
-            }}
+          >
+            メールアドレス
+          </label>
+          <input
+            className="form-control"
+            style={{ width: "300px" }}
+            id="email"
             name="email"
-            label="メールアドレス"
             value={email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
             }
           />
-        </FormControl>
-        <br />
-        <br />
-        <FormControl>
-          <TextField
-            InputLabelProps={{
-              shrink: true,
-            }}
+          <label
+            htmlFor="password"
+            className="form-label"
+            style={{ width: "300px" }}
+          >
+            パスワード
+          </label>
+          <input
+            className="form-control"
+            id="password"
+            type="password"
             style={{ width: "300px" }}
             name="pw"
-            label="パスワード"
             value={pw}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setPW(e.target.value)
             }
           />
-        </FormControl>
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          onClick={async () => {
-            try {
-              await signInWithEmailAndPassword(auth, email, pw);
-              alert("ログイン処理が成功しました。");
-              return navigate("/");
-            } catch (e: any) {
-              console.log(e);
-              alert(e.message);
-            }
-          }}
-        >
-          ログイン
-        </Button>
+        </div>
+        <br />
+        <div className="mb-3">
+          <button
+            className="btn btn-primary"
+            onClick={async () => {
+              try {
+                await signInWithEmailAndPassword(auth, email, pw);
+                alert("ログインしました");
+                return navigate("/");
+              } catch (e: any) {
+                console.log(e);
+                alert(e.message);
+              }
+            }}
+          >
+            ログイン
+          </button>
+        </div>
       </div>
       <br />
       <hr />
-      <Button
-        variant="contained"
-        color="primary"
-        size="small"
-        onClick={() => {
-          return navigate("/signup");
-        }}
-      >
-        アカウントの作成画面へ
-      </Button>
+      <br />
+      <div className="col-12">
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+              return navigate("/signup");
+          }}
+        >
+          ユーザー登録画面へ
+        </button>
+      </div>
     </div>
   );
 };

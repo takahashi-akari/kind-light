@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { auth } from "./Firebase";
 import { ExitToAppOutlined } from "@material-ui/icons";
 import { useNavigate, Navigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Delete } from "@material-ui/icons";
 const App = () => {
   let navigate = useNavigate();
   if (!auth || !auth.currentUser) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" replace={true} />;
   }
   return (
     <div className="row App">
@@ -16,6 +16,7 @@ const App = () => {
         <div>
           <p>Welcome, KindLight!</p>
           <p>Kind Light is a web app that helps you to relax and sleep better.</p>
+          <p>カインド・ライトは、あなたをリラックスさせ、より良い睡眠を促進するウェブアプリです。</p>
         </div>
         <button
           onClick={async () => {

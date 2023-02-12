@@ -33,6 +33,7 @@ createRoot(document.getElementById("root") as HTMLElement).render(
     <Header />
     <h1>Kind Light</h1>
     <p>Kind Light is a web app that helps you to relax and sleep better.</p>
+    <p>カインド・ライトは、あなたをリラックスさせ、より良い睡眠を促進するウェブアプリです。</p>
     <hr />
     <RouterProvider router={router} />
     <Footer />
