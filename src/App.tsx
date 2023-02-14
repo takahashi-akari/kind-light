@@ -15,8 +15,7 @@ const App = () => {
         <h2>Welcome, KindLight!</h2>
         <div>
           <p>Welcome, KindLight!</p>
-          <p>Kind Light is a web app that helps you to relax and sleep better.</p>
-          <p>カインド・ライトは、あなたをリラックスさせ、より良い睡眠を促進するウェブアプリです。</p>
+          <p>Kind Lightはコンピューターサイエンス（CS)の動画リストを共有するサイトです。</p>
         </div>
         <button
           onClick={async () => {
