@@ -32,7 +32,7 @@ createRoot(document.getElementById("root") as HTMLElement).render(
   <>
     <Header />
     <h1>Kind Light</h1>
-    <p>Kind Lightはコンピューターサイエンス（CS)の動画リストを共有するサイトです。</p>
+    <p>Kind Lightはコンピューターサイエンス（CS）の動画リストを共有するサイトです。</p>
     <hr />
     <RouterProvider router={router} />
     <Footer />

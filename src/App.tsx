@@ -15,7 +15,7 @@ const App = () => {
         <h2>Welcome, KindLight!</h2>
         <div>
           <p>Welcome, KindLight!</p>
-          <p>Kind Lightはコンピューターサイエンス（CS)の動画リストを共有するサイトです。</p>
+          <p>Kind Lightはコンピューターサイエンス（CS）の動画リストを共有するサイトです。</p>
         </div>
         <button
           onClick={async () => {
