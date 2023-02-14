@@ -37,6 +37,13 @@
     font-family: 'Rounded Mgen +', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+    -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+    0px 1px 0 #FFF,  0-1px 0 #FFF,
+    -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+
 body {
     background-image: url(./images/background.jpg);
     background-size: cover;
