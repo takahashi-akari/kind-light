@@ -1,11 +1,6 @@
-import { auth } from "./Firebase";
 const Header = () => {
-  let location = window.location.pathname;
-  if (location === "/" && (!auth || !auth.currentUser)) {
-    location = "/login";
-  }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary" style={{padding: "10px 20px"}}>
       <a className="navbar-brand" href="#">
         Kind Light
       </a>
@@ -30,33 +25,18 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <a
-              className={`nav-link ${
-                location === "/" ? "active" : ""
-              }`}
-              href="/"
-            >
-              ホーム画面
+            <a className="nav-link" href="/">
+              ホーム
             </a>
           </li>
           <li className="nav-item">
-            <a
-              className={`nav-link ${
-                location === "/login" ? "active" : ""
-              }`}
-              href="/login"
-            >
-              ログイン画面
+            <a className="nav-link" href="/login">
+              ログイン
             </a>
           </li>
           <li className="nav-item">
-            <a
-              className={`nav-link ${
-                location === "/signup" ? "active" : ""
-              }`}
-              href="/signup"
-            >
-              ユーザー登録画面
+            <a className="nav-link" href="/signup">
+              ユーザー登録
             </a>
           </li>
         </ul>
