@@ -1,4 +1,3 @@
-import "./App.scss";
 import { auth } from "./Firebase";
 import { ExitToAppOutlined } from "@material-ui/icons";
 import { useNavigate, Navigate } from "react-router-dom";

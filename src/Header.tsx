@@ -1,4 +1,3 @@
-import "./App.scss";
 import { auth } from "./Firebase";
 const Header = () => {
   let location = window.location.pathname;

@@ -4,6 +4,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
+import "./App.scss";
 import Login from "./Login";
 import Signup from "./Signup";
 import Header from "./Header";
