@@ -4,7 +4,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
-import "./App.scss";
+import "./css/index.scss";
 import Header from "./Header";
 import Footer from "./Footer";
 import Enter from "./Enter";
@@ -12,7 +12,6 @@ import Enter from "./Enter";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import "./App.scss";
 const router = createBrowserRouter([
   {
     path: "/",

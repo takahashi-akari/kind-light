@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary" style={{padding: "10px 20px"}}>
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         Kind Light
       </a>
       <button
