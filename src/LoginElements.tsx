@@ -39,6 +39,7 @@ export const LoginElements = () => {
             id="email"
             name="email"
             value={email}
+            placeholder='メールアドレスを入力してください。'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
           />
         </div>
