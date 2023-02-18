@@ -1,11 +1,10 @@
-import firebase from "firebase/compat/app";
-import { createContext, useEffect, useState, VFC, ReactNode } from "react";
-import { auth } from "./Firebase";
+import { createContext, useEffect, useState, ReactNode } from "react";
 import { LoginElements } from "./LoginElements";
-export type User = firebase.User;
+import { auth } from "./Firebase";
+import { User } from "firebase/auth";
 
 type AuthContextProps = {
-  currentUser: User | null | undefined;
+  currentUser: User | undefined;
   signInCheck: boolean;
 };
 
@@ -17,13 +16,13 @@ const AuthContext = createContext<AuthContextProps>({
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [currentUser, setCurrentUser] =
-    useState<User | null | undefined>(undefined);
+    useState<any>(undefined);
 
   const [signInCheck, setSignInCheck] = useState(false);
 
    // ログイン状態を確認する
   useEffect(() => {
-    auth.onAuthStateChanged(async (user: any) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
         setCurrentUser(user);
         setSignInCheck(true);
@@ -33,7 +32,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
   });
 
-  if (signInCheck) {
+  if (signInCheck && currentUser) {
     return (
       <AuthContext.Provider value={{ currentUser, signInCheck }}>
         {children}

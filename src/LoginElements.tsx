@@ -1,5 +1,6 @@
+import { auth } from './Firebase';
 import { useContext, useState } from 'react';
-import { getAuth, sendSignInLinkToEmail } from 'firebase/auth';
+import { sendSignInLinkToEmail } from 'firebase/auth';
 import { TailSpin } from 'react-loader-spinner';
 import { AuthContext } from './AuthProvider';
 export const LoginElements = () => {
@@ -11,7 +12,7 @@ export const LoginElements = () => {
     setIsLoading(false);
   }, 1500);
 
-  return isLoading && !signInCheck ? (
+  return isLoading && !signInCheck && !(auth && auth.currentUser ) ? (
     <div style={{width: '100%', textAlign: 'center'}}>
     <TailSpin
       height="80"
@@ -54,11 +55,10 @@ export const LoginElements = () => {
             onClick={async () => {
               try {
                 const actionCodeSettings = {
-                  url: 'https://kind-light.me/enter',
+                  url: 'https://localhost:3000/enter',
                   handleCodeInApp: true,
                   dynamicLinkDomain: 'kind-light.me'
                 };
-                const auth = getAuth();
                 sendSignInLinkToEmail(auth, email, actionCodeSettings)
                   .then(() => {
                     window.localStorage.setItem('emailForSignIn', email);

@@ -1,15 +1,9 @@
 import { auth } from './Firebase';
-import { ExitToAppOutlined } from '@material-ui/icons';
-import { useNavigate, Navigate } from 'react-router-dom';
-import { Delete } from '@material-ui/icons';
-import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
-import { AuthContext, AuthProvider } from './AuthProvider';
-import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
 const Enter = () => {
-  let navigate = useNavigate();
 
   const signIn = async () => {
-    const auth = getAuth();
     if (isSignInWithEmailLink(auth, window.location.href)) {
       let email = window.localStorage.getItem('emailForSignIn');
       if (!email) {
