@@ -1,11 +1,26 @@
-import { useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { getAuth, sendSignInLinkToEmail } from 'firebase/auth';
-
+import { TailSpin } from 'react-loader-spinner';
 export const LoginElements = () => {
   const [email, setEmail] = useState('');
-  const navigate = useNavigate();
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 300);
+  return isLoading ? (
+    <div style={{width: '100%', textAlign: 'center'}}>
+    <TailSpin
+      height="80"
+      width="80"
+      color="#0d6efd"
+      ariaLabel="tail-spin-loading"
+      radius="1"
+      wrapperStyle={{margin: '0 auto'}}
+      wrapperClass=""
+      visible={true}
+    />
+    </div>
+  ) : (
     <div className="row">
       <div className="col-12">
         <h2>ログイン画面</h2>
