@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { getAuth, sendSignInLinkToEmail } from 'firebase/auth';
 import { TailSpin } from 'react-loader-spinner';
+import { AuthContext } from './AuthProvider';
 export const LoginElements = () => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const { signInCheck } = useContext(AuthContext);
+
   setTimeout(() => {
     setIsLoading(false);
-  }, 600);
-  return isLoading ? (
+  }, 1500);
+
+  return isLoading && !signInCheck ? (
     <div style={{width: '100%', textAlign: 'center'}}>
     <TailSpin
       height="80"
