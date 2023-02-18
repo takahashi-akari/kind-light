@@ -26,7 +26,12 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "appAssociation": "AUTO",
     "rewrites": [
+      {
+        "source": "/links/**",
+        "dynamicLinks": true
+      },
       {
         "source": "/public/**",
         "destination": "/public.html"

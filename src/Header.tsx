@@ -29,16 +29,6 @@ const Header = () => {
               ホーム
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/login">
-              ログイン
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/signup">
-              ユーザー登録
-            </a>
-          </li>
         </ul>
       </div>
     </nav>

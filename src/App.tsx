@@ -1,14 +1,12 @@
-import { auth } from "./Firebase";
-import { ExitToAppOutlined } from "@material-ui/icons";
-import { useNavigate, Navigate } from "react-router-dom";
-import { Delete } from "@material-ui/icons";
-
+import { auth } from './Firebase';
+import { ExitToAppOutlined } from '@material-ui/icons';
+import { useNavigate } from 'react-router-dom';
+import { Delete } from '@material-ui/icons';
+import { AuthProvider } from './AuthProvider';
 const App = () => {
   let navigate = useNavigate();
-  if (!auth || !auth.currentUser) {
-    return <Navigate to="/login" replace={true} />;
-  }
   return (
+    <AuthProvider>
     <div className="row App">
       <div className="col-12">
         <h2>Welcome, KindLight!</h2>
@@ -20,30 +18,33 @@ const App = () => {
           onClick={async () => {
             try {
               await auth.signOut();
-              return navigate("/login");
+              return navigate('/');
             } catch (e) {
               console.log(e);
             }
           }}
         >
-          ログアウト<ExitToAppOutlined />
+          ログアウト
+          <ExitToAppOutlined />
         </button>
         <button
           onClick={async () => {
             try {
               await auth.currentUser?.delete();
-              alert("ユーザーを削除しました。");
+              alert('ユーザーを削除しました。');
               await auth.signOut();
-              return navigate("/login");
+              return navigate('/');
             } catch (e) {
               console.log(e);
             }
           }}
         >
-          ユーザーの削除<Delete />
+          ユーザーの削除
+          <Delete />
         </button>
       </div>
     </div>
+    </AuthProvider>
   );
 };
 export default App;

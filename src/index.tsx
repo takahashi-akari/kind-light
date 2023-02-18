@@ -5,10 +5,9 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import "./App.scss";
-import Login from "./Login";
-import Signup from "./Signup";
 import Header from "./Header";
 import Footer from "./Footer";
+import Enter from "./Enter";
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
@@ -20,13 +19,9 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
+    path: "/enter",
+    element: <Enter />,
+  }
 ]);
 
 createRoot(document.getElementById("root") as HTMLElement).render(
