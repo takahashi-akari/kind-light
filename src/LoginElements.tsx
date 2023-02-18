@@ -55,7 +55,7 @@ export const LoginElements = () => {
             onClick={async () => {
               try {
                 const actionCodeSettings = {
-                  url: 'https://localhost:3000/enter',
+                  url: window.location.protocol + '//' + window.location.host + '/enter',
                   handleCodeInApp: true,
                   dynamicLinkDomain: 'kind-light.me'
                 };
