@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { auth } from "./Firebase";
-import { Button, FormControl, TextField } from "@material-ui/core";
 import { useNavigate, Navigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
