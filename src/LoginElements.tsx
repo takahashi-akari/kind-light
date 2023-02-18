@@ -6,7 +6,7 @@ export const LoginElements = () => {
   const [isLoading, setIsLoading] = useState(true);
   setTimeout(() => {
     setIsLoading(false);
-  }, 300);
+  }, 600);
   return isLoading ? (
     <div style={{width: '100%', textAlign: 'center'}}>
     <TailSpin
