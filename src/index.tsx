@@ -8,6 +8,8 @@ import "./css/index.scss";
 import Header from "./Header";
 import Footer from "./Footer";
 import Enter from "./Enter";
+import Lists from "./lists/Lists";
+import ListNew from "./lists/ListNew";
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: "/enter",
     element: <Enter />,
+  },
+  {
+    path: "/lists",
+    element: <Lists />,
+  },
+  {
+    path: "/lists/new",
+    element: <ListNew />,
   }
 ]);
 
